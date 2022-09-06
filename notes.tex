@@ -1,0 +1,50 @@
+\documentclass{article}
+\usepackage{aurical}
+\usepackage[T1]{fontenc}
+\usepackage{pifont}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdfpagemode=FullScreen,
+    }
+
+\renewcommand{\labelitemiii}{-}
+\renewcommand{\labelitemi}{-}
+
+\begin{document}
+\title{\textbf{AML: Notes on final project}}
+
+\maketitle
+%\Fontauri\slshape
+\large
+
+\begin{itemize}
+\item Notes on first paper (Zagoruyko):
+
+\begin{itemize}
+\item Many different architectures, maybe use one or two best results and try to reproduce.
+\item Very focused on patch matching / segmentation, not sure, how much feature matching (or wide baseline stereo matching) was done in this paper
+\item Use of 64x64 patches: Makes it difficult for us to reproduce, since we have full resolution images. We need to decide on a way to pre-process our dataset or implement layers in the architecture that allow us to give different sizes as inputs (SPP layer?).
+\item Interesting take on CNNs \& NCCs, maybe we could give NCC nerworks a try, since it takes care of the normalization.
+\item Could use the Stretcha et al paper/data set to verify our results (comparing Zagoruyko with our network).
+\item Doesn't exactly correspond to our task, since output of networks are depth maps and not camera positions. We need some idea to translate depth information to positional info.
+\item We don't have the same ground truth as the data sets used in the paper. Our ground truth consists of positional information, not depth $\rightarrow$ can only take inspiration from this, but doesn't solve our problem.
+\end{itemize}
+
+\item Some more interesting links:
+\begin{itemize}
+\item \url{https://ducha-aiki.github.io/wide-baseline-stereo-blog/2020/03/27/intro.html}
+\item \url{https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=4587706}
+
+
+
+\end{itemize}
+
+\end{itemize}
+
+
+\end{document}
