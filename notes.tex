@@ -35,13 +35,22 @@
 \item We don't have the same ground truth as the data sets used in the paper. Our ground truth consists of positional information, not depth $\rightarrow$ can only take inspiration from this, but doesn't solve our problem.
 \end{itemize}
 
+\item Notes on "Understanding the Limitations of CNN-based Absolute Camera Pose Regression"
+\begin{itemize}
+\item main focus und single image based absolute 3D
+\item "Image Retrieval" is closest to kaggle winners, since it basically uses the CNN for matching the test image with the most similar training image and using feature matching to estimate the relative position of the 2 images. RPR is basically kaggle challenge
+\end{itemize}
+
+
+
 \item Some more interesting links:
 \begin{itemize}
-\item \url{https://ducha-aiki.github.io/wide-baseline-stereo-blog/2020/03/27/intro.html}
-\item \url{https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=4587706}
-
-
-
+\item Blogpost with basic info about Task+many useful resources \url{https://ducha-aiki.github.io/wide-baseline-stereo-blog/2020/03/27/intro.html}
+\item Stretcha, Hansen: 3D reconstruction \url{https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=4587706}
+\item kaggle challenge winners \url{https://ducha-aiki.github.io/wide-baseline-stereo-blog/2022/07/05/IMC2022-Recap.html}
+\item Sattler, Zhou: Understanding the Limits of CNN...\url{https://arxiv.org/abs/1903.07504}
+\item Balntas, Li: RelocNet: \url{https://openaccess.thecvf.com/content_ECCV_2018/papers/Vassileios_Balntas_RelocNet_Continous_Metric_ECCV_2018_paper.pdf}
+\item Laskar, Melekhov: Pairwise Relative Poses with CNN: \url{https://arxiv.org/pdf/1707.09733.pdf}´
 \end{itemize}
 
 \end{itemize}
