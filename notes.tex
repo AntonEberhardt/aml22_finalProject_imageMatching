@@ -38,7 +38,8 @@
 \item Notes on "Understanding the Limitations of CNN-based Absolute Camera Pose Regression"
 \begin{itemize}
 \item main focus und single image based absolute 3D
-\item "Image Retrieval" is closest to kaggle winners, since it basically uses the CNN for matching the test image with the most similar training image and using feature matching to estimate the relative position of the 2 images. RPR is basically kaggle challenge
+\item "Image Retrieval" is closest to kaggle winners, since it basically uses the CNN for matching the test image with the most similar training image and using feature matching to estimate the relative position of the 2 images. RPR is basically kaggle challenge.
+\item CNNs (APR approach) learns "base translations" that are summed up during the last layer, which has learned the weights to accuratly reproduce the positions of training images.
 \end{itemize}
 
 
