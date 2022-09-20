@@ -152,7 +152,7 @@ def custom_loss(classify, regress, labels, class_labels, dof, dof_regress, ceFac
     _, pred_labels = torch.min(classify, 1)
 
     loss = (
-        2.4 * loss + ceFactor * criterion(classify, class_labels) + 0.5 * mse(dof_regress, dof)
+        1. * loss + ceFactor * criterion(classify, class_labels) + 1. * mse(dof_regress, dof)
     )
 
     return loss
@@ -321,7 +321,7 @@ if __name__ == "__main__":
     # optimizer = optim.SGD(net.parameters(), lr = 0.001, momentum=0.9)
     optimizer = optim.Adam(net.parameters(), lr=0.0003)
 
-    numEpochs = 300
+    numEpochs = 25
 
     softmax = nn.Softmax(dim=1)
 
@@ -514,11 +514,11 @@ if __name__ == "__main__":
                 pickle.dump(temp_dist_gt, f)
             """
 
-            np.savetxt(os.path.join("ShopFacade","run-22-09-16",f"test_errors_epoch{epoch}.txt"), np.squeeze(np.array(test_errors)))
-            np.savetxt(os.path.join("ShopFacade","run-22-09-16",f"pred_dist_epoch{epoch}.txt"), np.squeeze(np.array(temp_dist_test)))
-            np.savetxt(os.path.join("ShopFacade","run-22-09-16",f"gt_dist_epoch{epoch}.txt"), np.squeeze(np.array(temp_dist_gt)))
+            np.savetxt(os.path.join("ShopFacade","run-22-09-20",f"test_errors_epoch{epoch}.txt"), np.squeeze(np.array(test_errors)))
+            np.savetxt(os.path.join("ShopFacade","run-22-09-20",f"pred_dist_epoch{epoch}.txt"), np.squeeze(np.array(temp_dist_test)))
+            np.savetxt(os.path.join("ShopFacade","run-22-09-20",f"gt_dist_epoch{epoch}.txt"), np.squeeze(np.array(temp_dist_gt)))
         
-        if epoch%100 == 0:
+        if epoch%100+1 == 0:
             torch.save(net, os.path.join("ShopFacade", "nets", f"trainedNet_epoch{epoch}.pt"))
 
         print (
@@ -533,3 +533,5 @@ if __name__ == "__main__":
                 time.time() - startTime,
             )
         )
+
+    torch.save(net, os.path.join(os.path.join("ShopFacade", "nets","CE0SQD1MSE1-ADAMOPT0-0003.pt")))
